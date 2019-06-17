@@ -13,31 +13,25 @@ function initMap() {
   infoWindow = new google.maps.InfoWindow;
 
   // HTML5 geolocation.
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      var pos = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
-      };
+  // if (navigator.geolocation) {
+  //   navigator.geolocation.getCurrentPosition(function(position) {
+  //     var pos = {
+  //       lat: position.coords.latitude,
+  //       lng: position.coords.longitude
+  //     };
 
-      infoWindow.setPosition(pos);
-      infoWindow.setContent('Location found.');
-      infoWindow.open(map);
-      map.setCenter(pos);
-    }, function() {
-      handleLocationError(true, infoWindow, map.getCenter());
-    });
-  } else {
-    // Browser doesn't support Geolocation
-    handleLocationError(false, infoWindow, map.getCenter());
+  //     infoWindow.setPosition(pos);
+  //     infoWindow.setContent('Location found.');
+  //     infoWindow.open(map);
+  //     map.setCenter(pos);
+  //   }, function() {
+  //     handleLocationError(true, infoWindow, map.getCenter());
+  //   });
+  // } else {
+  //   // Browser doesn't support Geolocation
+  //   handleLocationError(false, infoWindow, map.getCenter());
 
-  }
-
-
-
-
-
-
+  // }
 }
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -48,10 +42,22 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.open(map);
 }
 
+$('#searchButton').click(function(){
+  searchLocation();
+});
 
+$('#searchButton2').click(function(){
+  searchLocation();
+});
+
+$( document ).ready(function() {
 //Search for location
+$('#searchInputLabel').val(window.location.search.slice(8));
+searchLocation();
 
-$('#searchButton').click(function () {
+});
+  
+function searchLocation() {
   var geocoder = new google.maps.Geocoder("#map");
   console.log("click click");
 
@@ -74,7 +80,7 @@ $('#searchButton').click(function () {
 			alert("Geocode was not successful for the following reason: " + status);
 		}
 	});
-});
+};
 
 
 
