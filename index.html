@@ -2,69 +2,59 @@
 <html lang="en">
 
 <head>
-    <title>Title</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
 
 <body>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Kanit&display=swap" rel="stylesheet">
 
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container text-center">
-            <h1 class="display-1">Life Relocated</h1>
-            <p class="lead">Helping you visualize your new life</p>
-        </div>
+  <script type="text/javascript">
+  </script>
+
+  <div class="jumbotron">
+    <h1 class="display-4 text-center bg-white text-primary">Life Relocated</h1>
+  </div>
+
+  <div class="container" id="mainContainer">
+    <div class="row" id="slogan">
+      <div class="col-12">
+        <h3>We’ll help you find a neighborhood that suites your lifestyle.</h3>
+      </div>
     </div>
-<br>
-
-<div class="container text-center">
     <div class="row">
-        <div class="col-md-12">
-                <a id="compare-salary" class="waves-effect waves-light btn">Compare Salary</a>
-                <a id="iving Costs" class="waves-effect waves-light btn">button</a>
-                <a id="Avg" class="waves-effect waves-light btn">button</a>
+      <div class="col-12 text-center" id="searchCol">
+        <div class="input-group mb-3" id="searchForm">
+          <input type="text" class="form-control border border-primary" id="searchInputLabel"
+            placeholder="Enter a city or zipcode" aria-label="Search city" aria-describedby="searchButton">
+          <div class="input-group-append">
+            <button class="btn btn-outline-primary" type="button" id="searchButton"><i
+                class="fa fa-search fa-2x"></i></button>
+          </div>
         </div>
+      </div>
     </div>
-</div>
+  </div>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header">
-                        Quote
-                    </div>
-                    <div class="card-body">
-                        <blockquote class="blockquote mb-0">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source
-                                    Title</cite></footer>
-                        </blockquote>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3G8BwCdv0XUpRNKq_W0CnhZwODTZYugw&callback=initMap"
+    async defer></script>
+  <script type="text/javascript" src="assets/javascript/googlemaps.js"></script>
 </body>
 
 </html>
