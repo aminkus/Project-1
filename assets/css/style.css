@@ -38,12 +38,13 @@ body{
 #searchForm{
     margin: auto;
     margin-top: 10vh;
-    width: 90%;
+    width: 60%;
 }
 
 #searchInputLabel{
-    height: 75px;
+    height: 50px;
     font-size: 24px;
+    margin-right: 0;
 }
 
 
@@ -55,6 +56,11 @@ body{
     width:50px;
 }
 
+
+#dataContainer{
+    width: 100vw;
+
+}
 
 /* GoogleMaps */
 
@@ -133,4 +139,6 @@ body{
         font-size: 18px;
     }
 }
+
+
 
