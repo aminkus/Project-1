@@ -38,7 +38,7 @@ body{
 #searchForm{
     margin: auto;
     margin-top: 10vh;
-    width: 50vw;
+    width: 90%;
 }
 
 #searchInputLabel{
@@ -75,6 +75,10 @@ body{
     #searchForm{
         margin: 10px;
         margin-top: 10vh;
+        width: 90vw;
+    }
+
+    #slogan{
         width: 90vw;
     }
 

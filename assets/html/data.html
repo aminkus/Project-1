@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Kanit&display=swap" rel="stylesheet">
 
@@ -23,7 +23,13 @@
     </script>
 
 <div class="jumbotron">
-    <h1 class="display-4 text-center bg-white text-primary">Life Relocated</h1>
+    <h1 class="display-4 bg-white text-primary">Life Relocated</h1>
+    <div class="input-group mb-3" id="searchForm">
+            <input type="text" class="form-control border border-primary" id="searchInputLabel" placeholder="Enter a city or zipcode" aria-label="Search city" aria-describedby="searchButton">
+            <div class="input-group-append">
+                <button class="btn btn-outline-primary" type="button" id="searchButton"><i class="fa fa-search fa-2x"></i></button>
+            </div>
+        </div>
 </div>
 
 <div class="container" id="mainContainer">
@@ -33,13 +39,12 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-12 text-center" id="searchCol">
-                <div class="input-group mb-3" id="searchForm">
-                    <input type="text" class="form-control border border-primary" id="searchInputLabel" placeholder="Enter a city or zipcode" aria-label="Search city" aria-describedby="searchButton">
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-primary" type="button" id="searchButton"><i class="fa fa-search fa-2x"></i></button>
-                    </div>
-                </div>
+        <div class="col-12 text-center" id="searchCol">                
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12" id="map-container">
+            <div id="map" style="width: 45%; height: 400px"></div>
         </div>
     </div>
 </div>
