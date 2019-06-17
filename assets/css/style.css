@@ -55,6 +55,22 @@ body{
     width:50px;
 }
 
+
+/* GoogleMaps */
+
+#map {
+    height: 100%;
+  }
+  /* Optional: Makes the sample page fill the window. */
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+
+  
+
 /* media queries *******************************************************************/
 /* Screens that are 960px or less */
 @media screen and (max-width: 960px) {
