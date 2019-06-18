@@ -1,113 +1,194 @@
-//GOOGLE MAPS JS//
+//Global Variables to be updated
 
-//Function for geolocation on page load.
+//to be taken from geoip-db
 
-var map, infoWindow;
+var localCity = '';
+var localState = '';
 
 
-function initMap() {
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: -34.397, lng: 150.644},
-    zoom: 9
+//to be taken from GoogleMaps
+
+var foundCity = '';
+var foundState = '';
+
+
+
+
+
+//Ajax call to geoip-db get the city data from geoip-db and define the 'local' variables
+
+function loadLocal() {
+  $.ajax({
+    url: "https://geoip-db.com/jsonp",
+    jsonpCallback: "callback",
+    dataType: "jsonp",
+
+
+  }).then(function (location) {
+
+    localCity = location.city;
+    localState = location.state;
+    searchLocation();
+
   });
-  infoWindow = new google.maps.InfoWindow;
-
-  // HTML5 geolocation.
-  // if (navigator.geolocation) {
-  //   navigator.geolocation.getCurrentPosition(function(position) {
-  //     var pos = {
-  //       lat: position.coords.latitude,
-  //       lng: position.coords.longitude
-  //     };
-
-  //     infoWindow.setPosition(pos);
-  //     infoWindow.setContent('Location found.');
-  //     infoWindow.open(map);
-  //     map.setCenter(pos);
-  //   }, function() {
-  //     handleLocationError(true, infoWindow, map.getCenter());
-  //   });
-  // } else {
-  //   // Browser doesn't support Geolocation
-  //   handleLocationError(false, infoWindow, map.getCenter());
-
-  // }
-}
-
-function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-  infoWindow.setPosition(pos);
-  infoWindow.setContent(browserHasGeolocation ?
-                        'Error: The Geolocation service failed.' :
-                        'Error: Your browser doesn\'t support geolocation.');
-  infoWindow.open(map);
-}
-
-$('#searchForm-index').click(function(event){
-  event.preventDefault();
-  // searchLocation();
-});
-
-$('#searchForm-data').click(function(event){
-  event.preventDefault();
-  searchLocation();
-});
-
-$( document ).ready(function() {
-//Search for location
-console.log(location.search.slice(8));
-$('#searchInputLabel-data').val(window.location.search.slice(8));
-// TODO: delete this
-setTimeout(function(){
-  searchLocation();
-    //do what you need here
-}, 500);
-
-});
-  
-function searchLocation() {
-  console.log("click click");
-  var geocoder = new google.maps.Geocoder("#map");
-
-  var address = $('#searchInputLabel-data').val();
-  
-	geocoder.geocode( { 'address': address}, function(results, status) {
-		if (status == google.maps.GeocoderStatus.OK) 
-		{
-      map.setCenter(results[0].geometry.location);
-        if(marker)
-        marker.setMap(null);
-			var marker = new google.maps.Marker({
-				map: map, 
-        position: results[0].geometry.location,
-        draggable: true
-			});
-		} 
-		else 
-		{
-			alert("Geocode was not successful for the following reason: " + status);
-		}
-	});
 };
 
 
 
 
-//Get a variable with the actual city string for WolframAlpha:
+//GOOGLE MAPS JS//
 
-//ajax call to get the city data from geoip-db
+//Function for initializing geolocation display in Google Maps element
 
-$.ajax({
-    url: "https://geoip-db.com/jsonp",
-    jsonpCallback: "callback",
-    dataType: "jsonp",
-    success: function( location ) {
-        $('#country').html(location.country_name);
-        $('#state').html(location.state);
-        $('#city').html(location.city);  //use this one to get the city name
-        $('#latitude').html(location.latitude);
-        $('#longitude').html(location.longitude);
-        $('#ip').html(location.IPv4);  
+var map, infoWindow;
+
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: { lat: -34.397, lng: 150.644 },
+    zoom: 9
+  });
+  infoWindow = new google.maps.InfoWindow;
+
+
+
+}
+
+function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+  infoWindow.setPosition(pos);
+  infoWindow.setContent(browserHasGeolocation ?
+    'Error: The Geolocation service failed.' :
+    'Error: Your browser doesn\'t support geolocation.');
+  infoWindow.open(map);
+}
+
+
+
+
+//SEARCH FOR LOCATION//
+
+//On data.html page load, local variables should be loaded, user input string should be saved, and a search URL should be generated based on the local variables and search word variables.
+
+$(document).ready(function () {
+  loadLocal();
+  $('#searchInputLabel').val(window.location.search.slice(8));
+
+  //Calls the function of the search when the page transitions--so that the user's search carries from index.html to data.html
+  if (window.location !== "data") {
+    // console.log("data");
+    
+
+    $('#searchButton2').click(function () {
+      loadLocal();
+      
+    });
+  }
+
+
+
+});
+
+//Search location function for Google Maps geocoding.
+
+function searchLocation() {
+  var geocoder = new google.maps.Geocoder("#map");
+  // console.log("click click");
+
+  var address = $('#searchInputLabel').val();
+
+  geocoder.geocode({ 'address': address }, function (results, status) {
+    // console.log(results);
+    if (status == google.maps.GeocoderStatus.OK) {
+      map.setCenter(results[0].geometry.location);
+      if (marker)
+        marker.setMap(null);
+      var marker = new google.maps.Marker({
+        map: map,
+        position: results[0].geometry.location,
+        draggable: true
+      });
+      foundCity = results[0].address_components[0].long_name;
+      foundState = results[0].address_components[2].long_name
+      searchkeilswolfram();
+
+      // console.log(foundCity);
+      // console.log(foundState);
+
     }
-}); 
+    else {
+      alert("Geocode was not successful for the following reason: " + status);
+    }
+  });
+
+
+
+
+};
+
+
+//Function -- Ajax call for keilswolfram app & display information on html
+
+function searchkeilswolfram() {
+
+  var queryURL = "https://keilswolframmess.herokuapp.com/?startCity=" + localCity + "&startState=" + localState + "&endCity=" + foundCity + "&endState=" + foundState
+
+ 
+
+  $.ajax({
+    url: queryURL,
+    method: "GET",
+  }).then(function (response) {
+    // console.log(queryURL);
+    // console.log(response);
+
+    $("#population").empty();
+    $("#annualMedianHomePrice").empty();
+    $("#unemployment").empty();
+    $("#crime").empty();
+    $("#saleTax").empty();
+
+
+
+    var popImg = $("<img>");
+    popImg.attr('alt', 'population info');
+    popImg.attr('id', 'popData')
+    popImg.attr('src', response.pop);
+    $("#population").append(popImg);
+
+
+    var annualImg = $("<img>");
+    annualImg.attr('alt', "annual median home price");
+    annualImg.attr('id', 'annualMedianHPData');
+    annualImg.attr('src', response.medianH);
+    $("#annualMedianHomePrice").append(annualImg);
+
+
+    var unemployImg = $("<img>");
+    unemployImg.attr('alt', 'unemployment rate');
+    unemployImg.attr('id', 'unemploymentData');
+    unemployImg.attr('src', response.unemployed);
+    $("#unemployment").append(unemployImg);
+
+
+    var crimeImg = $("<img>");
+    crimeImg.attr('alt', 'crime rate');
+    crimeImg.attr('id', 'crimeData');
+    crimeImg.attr('src', response.crime);
+    $("#crime").append(crimeImg);
+
+
+    var salesTaxImg = $("<img>");
+    salesTaxImg.attr('alt', 'sales tax');
+    salesTaxImg.attr('id', 'salesTaxData');
+    salesTaxImg.attr('src', response.sales);
+    $("#saleTax").append(salesTaxImg);
+
+
+
+
+
+  });
+
+
+};
 
 
