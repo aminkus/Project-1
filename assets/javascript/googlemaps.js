@@ -48,6 +48,10 @@ function initMap() {
   infoWindow = new google.maps.InfoWindow;
 
   // // HTML5 geolocation.
+  // (navigatorlocation)     
+
+  //LEAVE THIS IN FOR NOW//
+  // // HTML5 geolocation.
   // if (navigator.geolocation) {
   //   navigator.geolocation.getCurrentPosition(function(position) {
   //     var pos = {
@@ -79,6 +83,8 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
                         'Error: Your browser doesn\'t support geolocation.');
   infoWindow.open(map);
 }
+
+
 
 
 //SEARCH FOR LOCATION//
@@ -125,10 +131,70 @@ function searchLocation() {
 		{
 			alert("Geocode was not successful for the following reason: " + status);
 		}
-	});
+  });
+
+  //Ajax call for keilswolfram app
+
+  var queryURL = "https://keilswolframmess.herokuapp.com/?startCity=" + localCity + "&startState=" + localState + "&endCity=" + foundCity + "&endState=" + foundState
+  
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+  }).then(function(response) {
+    console.log(queryURL);
+    console.log(response);
+   
+    $("#population").empty();
+    $("#annualMedianHomePrice").empty();
+    $("#unemployment").empty();
+    $("#crime").empty();
+    $("#saleTax").empty();
+
+
+
+    var popImg = $("<img>");
+    popImg.attr('alt', 'population info');
+    popImg.attr('id', 'popData')
+    popImg.attr('src', response.pop);
+    $("#population").append(popImg);
+
+
+    var annualImg = $("<img>");
+    annualImg.attr('alt',"annual median home price");
+    annualImg.attr('id', 'annualMedianHPData');
+    annualImg.attr('src', response.medianH);
+    $("#annualMedianHomePrice").append(annualImg);
+
+    
+    var unemployImg = $("<img>");
+    unemployImg.attr('alt', 'unemployment rate');
+    unemployImg.attr('id', 'unemploymentData');
+    unemployImg.attr('src', response.unemployed);
+    $("#unemployment").append(unemployImg);
+
+
+    var crimeImg = $("<img>");
+    crimeImg.attr('alt','crime rate');
+    crimeImg.attr('id', 'crimeData');
+    crimeImg.attr('src', response.crime);
+    $("#crime").append(crimeImg);
+    
+
+    var salesTaxImg = $("<img>");
+    salesTaxImg.attr('alt', 'sales tax');
+    salesTaxImg.attr('id', 'salesTaxData');
+    salesTaxImg.attr('src', response.sales);
+    $("#saleTax").append(salesTaxImg);
+
+
+
+
+
+  });
+
+
+
 };
-
-
 
 
 
