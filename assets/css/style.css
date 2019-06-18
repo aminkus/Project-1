@@ -1,0 +1,144 @@
+.jumbotron{
+    background: #5282ce;
+    height: 100px;
+    padding: 0;
+    margin: 0;
+    display:table;
+    width:100%;
+
+}
+
+.jumbotron h1{
+    /* font-family: 'Oleo Script Swash Caps', cursive; */
+    font-family: 'Kanit', sans-serif;
+    display:table-cell; vertical-align:middle;
+}
+
+.display-3{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#slogan{
+    text-align: center;
+    color: white;
+    margin-top: 20vh;
+}
+
+body{
+    height: 100%;
+    background-image:url(../media/seattle.jpg);
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+}
+
+
+
+#searchForm{
+    margin: auto;
+    margin-top: 10vh;
+    width: 60%;
+}
+
+#searchInputLabel{
+    height: 50px;
+    font-size: 24px;
+    margin-right: 0;
+}
+
+
+#searchButton{
+    background:white;
+}
+
+#searchButton i{
+    width:50px;
+}
+
+
+#dataContainer{
+    width: 100vw;
+
+}
+
+/* GoogleMaps */
+
+#map {
+    height: 100%;
+  }
+  /* Optional: Makes the sample page fill the window. */
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+
+  
+
+/* media queries *******************************************************************/
+/* Screens that are 960px or less */
+@media screen and (max-width: 960px) {
+    body {
+      background-color: blue; /* delete this*/
+      background-size: auto 100vh;
+    }
+
+    #mainContainer{
+        margin-left:2vw;
+    }
+
+    #searchCol{
+        padding-left: 0;
+        margin-left: 0;
+    }
+    
+    #searchForm{
+        margin: 10px;
+        margin-top: 10vh;
+        width: 90vw;
+    }
+
+    #slogan{
+        width: 90vw;
+    }
+
+    
+  }
+
+/* Screens that are 768px or less */
+@media screen and (max-width: 768px) {
+    body {
+      background-color: blue; /* delete this*/
+      background-size: auto 100vh;
+    }
+  }
+  
+/* Screens that are 360px or less */
+@media screen and (max-width: 360px) {
+    body {
+        background-color: olive; /* delete this*/
+        background-size: auto 100vh;
+    }
+
+    .jumbotron h1{
+        font-size: 36px;
+    }
+
+    #searchForm{
+        margin: 10px;
+        margin-left: 0;
+        margin-top: 10vh;
+        width: 95vw;
+        text-align: center;
+    }
+    
+    #searchInputLabel{
+        height: 60px;
+        font-size: 18px;
+    }
+}
+
+
+
