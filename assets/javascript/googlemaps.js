@@ -98,7 +98,12 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 //   searchkeilswolfram();
 // });
 // $('#searchButton').click(function () {
+//   // event.preventDefault();
 //   searchLocation();
+//   console.log(localCity);
+//   console.log(localState);
+//   console.log(foundCity);
+//   console.log(foundState);
 // });
 
 
@@ -118,14 +123,14 @@ $(document).ready(function () {
       //searchkeilswolfram();
     });
   }
-  else {
+  
     setTimeout(function () {
       searchLocation();
       
       //searchkeilswolfram();
-    }, 200);
+    }, 1000);
 
-  }
+  
 });
 
 function searchLocation() {
