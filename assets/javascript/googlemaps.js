@@ -92,16 +92,19 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 
 $('#searchButton').click(function(){
   searchLocation();
+  searchkeilswolfram();
 });
 
 $('#searchButton2').click(function(){
   searchLocation();
+  searchkeilswolfram();
 });
 
 $( document ).ready(function() {
 //Search for location
 $('#searchInputLabel').val(window.location.search.slice(8));
 searchLocation();
+searchkeilswolfram();
 
 });
   
@@ -140,12 +143,14 @@ function searchLocation() {
 };
 
 
-//Ajax call for keilswolfram app
+//Function -- Ajax call for keilswolfram app
 
 function searchkeilswolfram() {
 
-var queryURL = "https://keilswolframmess.herokuapp.com/?startCity=" + localCity + "&startState=" + localState + "&endCity=" + foundCity + "&endState=" + foundState
-  
+var originalURL = "https://keilswolframmess.herokuapp.com/?startCity=" + localCity + "&startState=" + localState + "&endCity=" + foundCity + "&endState=" + foundState
+
+var queryURL = "https://cors-anywhere.herokuapp.com/" + originalURL
+
 $.ajax({
   url: queryURL,
   method: "GET",
