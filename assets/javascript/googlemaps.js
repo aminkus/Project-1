@@ -1,4 +1,4 @@
-//Global Variables to be updated 
+//Global Variables to be updated
 
 //to be taken from geoip-db
 
@@ -15,23 +15,22 @@ var foundState = '';
 
 
 
-//ajax call to get the city data from geoip-db and define the 'local' variables
+//Ajax call to geoip-db get the city data from geoip-db and define the 'local' variables
 
-function loadLocal(){
-$.ajax({
-  url: "https://geoip-db.com/jsonp",
-  jsonpCallback: "callback",
-  dataType: "jsonp",
-  // success: 
+function loadLocal() {
+  $.ajax({
+    url: "https://geoip-db.com/jsonp",
+    jsonpCallback: "callback",
+    dataType: "jsonp",
 
 
-}).then(function (location) {
+  }).then(function (location) {
 
-  localCity = location.city;
-  localState = location.state;
-  
+    localCity = location.city;
+    localState = location.state;
+    searchLocation();
 
-});
+  });
 };
 
 
@@ -39,7 +38,7 @@ $.ajax({
 
 //GOOGLE MAPS JS//
 
-//Function for geolocation on page load.
+//Function for initializing geolocation display in Google Maps element
 
 var map, infoWindow;
 
@@ -49,31 +48,6 @@ function initMap() {
     zoom: 9
   });
   infoWindow = new google.maps.InfoWindow;
-
-  // // HTML5 geolocation.
-  // (navigatorlocation)     
-
-  //LEAVE THIS IN FOR NOW//
-  // // HTML5 geolocation.
-  // if (navigator.geolocation) {
-  //   navigator.geolocation.getCurrentPosition(function(position) {
-  //     var pos = {
-  //       lat: position.coords.latitude,
-  //       lng: position.coords.longitude
-  //     };
-
-  //     infoWindow.setPosition(pos);
-  //     infoWindow.setContent('Location found.');
-  //     infoWindow.open(map);
-  //     map.setCenter(pos);
-  //   }, function() {
-  //     handleLocationError(true, infoWindow, map.getCenter());
-  //   });
-  // } else {
-  //   // Browser doesn't support Geolocation
-  //   handleLocationError(false, infoWindow, map.getCenter());
-
-  // }
 
 
 
@@ -92,55 +66,37 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 
 //SEARCH FOR LOCATION//
 
-
-// $('#searchButton').click(function(){
-//   searchLocation();
-//   searchkeilswolfram();
-// });
-// $('#searchButton').click(function () {
-//   // event.preventDefault();
-//   searchLocation();
-//   console.log(localCity);
-//   console.log(localState);
-//   console.log(foundCity);
-//   console.log(foundState);
-// });
-
+//On data.html page load, local variables should be loaded, user input string should be saved, and a search URL should be generated based on the local variables and search word variables.
 
 $(document).ready(function () {
   loadLocal();
   $('#searchInputLabel').val(window.location.search.slice(8));
-  
-  
-  if (window.location !== "data") {
-    console.log("data");
-    //Search for location
 
+  //Calls the function of the search when the page transitions--so that the user's search carries from index.html to data.html
+  if (window.location !== "data") {
+    // console.log("data");
+    
 
     $('#searchButton2').click(function () {
-      searchLocation();
+      loadLocal();
       
-      //searchkeilswolfram();
     });
   }
-  
-    setTimeout(function () {
-      searchLocation();
-      
-      //searchkeilswolfram();
-    }, 1000);
 
-  
+
+
 });
+
+//Search location function for Google Maps geocoding.
 
 function searchLocation() {
   var geocoder = new google.maps.Geocoder("#map");
-  console.log("click click");
+  // console.log("click click");
 
   var address = $('#searchInputLabel').val();
 
   geocoder.geocode({ 'address': address }, function (results, status) {
-    console.log(results);
+    // console.log(results);
     if (status == google.maps.GeocoderStatus.OK) {
       map.setCenter(results[0].geometry.location);
       if (marker)
@@ -154,8 +110,8 @@ function searchLocation() {
       foundState = results[0].address_components[2].long_name
       searchkeilswolfram();
 
-      console.log(foundCity);
-      console.log(foundState);
+      // console.log(foundCity);
+      // console.log(foundState);
 
     }
     else {
@@ -169,20 +125,20 @@ function searchLocation() {
 };
 
 
-//Function -- Ajax call for keilswolfram app
+//Function -- Ajax call for keilswolfram app & display information on html
 
 function searchkeilswolfram() {
 
   var queryURL = "https://keilswolframmess.herokuapp.com/?startCity=" + localCity + "&startState=" + localState + "&endCity=" + foundCity + "&endState=" + foundState
 
-  // var  = "https://cors-anywhere.herokuapp.com/" + originalURL
+ 
 
   $.ajax({
     url: queryURL,
     method: "GET",
   }).then(function (response) {
-    console.log(queryURL);
-    console.log(response);
+    // console.log(queryURL);
+    // console.log(response);
 
     $("#population").empty();
     $("#annualMedianHomePrice").empty();
