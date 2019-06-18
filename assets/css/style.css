@@ -54,7 +54,11 @@ body{
 #searchButton i{
     width:50px;
 }
-
+.input-group{
+    width: 50%;
+    margin-left: 150px;
+   
+}
 
 /* GoogleMaps */
 
