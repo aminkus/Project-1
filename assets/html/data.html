@@ -11,13 +11,17 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<<<<<<< HEAD
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+=======
+>>>>>>> development
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Kanit&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
 </head>
+<<<<<<< HEAD
 
 <body>
 
@@ -64,4 +68,48 @@
     <script type="text/javascript"></script>
 </body>
 
+=======
+
+<body>
+    
+    <div class="jumbotron">
+        <h1 class="display-4 text-center bg-white text-primary">Life Relocated</h1>
+    </div>
+    
+    <div class="input-group mb-3" id="searchForm2">
+        <input type="text" class="form-control border border-primary" id="searchInputLabel"
+        placeholder="Enter a city or zipcode" aria-label="Search city" aria-describedby="searchButton">
+        <div class="input-group-append">
+            <button class="btn btn-outline-primary" type="button" id="searchButton"><i
+                class="fa fa-search fa-2x"></i></button>
+            </div>
+        </div>
+        
+        <div class="container" id="dataContainer">
+            <div class="row">
+                <div class="col-12 text-center" id="searchCol">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6" id="map-container">
+                    <div id="map" style="width: 100%; height: 400px"></div>
+                </div>
+                <div class="col-6" id="map-container">
+                    <div id="population"></div>  
+                    <div id="annualMedianHomePrice"></div>
+                    <div id="unemployment"></div>
+                    <div id="crime"></div>
+                    <div id="saleTax"></div>
+                </div>
+            </div>
+        </div>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3G8BwCdv0XUpRNKq_W0CnhZwODTZYugw&callback=initMap"
+        async defer></script>
+        <script type="text/javascript" src="../javascript/googlemaps.js"></script>
+    </body>
+    
+>>>>>>> development
 </html>
