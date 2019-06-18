@@ -18,43 +18,37 @@
   
   <body>
 
-    
+    <!-- banner -->
     <div class="jumbotron">
       <h1 class="display-4 text-center bg-white text-primary">Life Relocated</h1>
     </div>
 
+    <!-- main content container -->
     <div class="container" id="mainContainer">
+      <!-- slogan -->
       <div class="row" id="slogan">
         <div class="col-12">
           <h3>We’ll help you find a neighborhood that suites your lifestyle.</h3>
         </div>
       </div>
+      
+      <!-- search form -->
       <div class="row">
-        <div class="col-12 text-center" id="searchCol">
-          <div class="input-group mb-3" id="searchForm">
-              <form class="form-inline my-2 my-lg-0" action="assets/html/data.html" method="GET">
-                  <input class="form-control mr-sm-2" type="search" placeholder="Search city" aria-label="search" name="search" id="searchInputLabel">
-                  <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" id="searchButton"><i
-                    class="fa fa-search fa-2x"></i></button>
-                </form>
-            <!-- <form action="assets/html/data.html">
-              <input type="text" class="form-control border border-primary" id="searchInputLabel"
-              placeholder="Enter a city or zipcode" aria-label="Search city" aria-describedby="searchButton">
-              <div class="input-group-append">
-                <button class="btn btn-outline-primary" type="submit" id="searchButton" action="assets/html/data.html"><i
-                  class="fa fa-search fa-2x"></i></button>
-                </form> -->
-              </div>
-            </div>
-          </div>
+        <div class="col-12" id="searchCol-index">
+          <form class="form-inline my-2 my-lg-0 justify-content-center"  id="searchForm-index" action="assets/html/data.html" method="GET">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search city" aria-label="search" name="search" id="searchInputLabel-index">
+            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" id="searchButton-index"><i
+              class="fa fa-search fa-2x"></i></button>
+          </form>
         </div>
       </div>
+    </div>
       
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
       
-      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3G8BwCdv0XUpRNKq_W0CnhZwODTZYugw&callback=initMap"
-    async defer></script>
-  <script type="text/javascript" src="assets/javascript/googlemaps.js"></script>
+      <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3G8BwCdv0XUpRNKq_W0CnhZwODTZYugw&callback=initMap"
+    async defer></script> -->
+  <!-- <script type="text/javascript" src="assets/javascript/googlemaps.js"></script> -->
 </body>
 
 </html>

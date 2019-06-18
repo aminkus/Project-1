@@ -42,26 +42,33 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.open(map);
 }
 
-$('#searchButton').click(function(){
-  searchLocation();
+$('#searchForm-index').click(function(event){
+  event.preventDefault();
+  // searchLocation();
 });
 
-$('#searchButton2').click(function(){
+$('#searchForm-data').click(function(event){
+  event.preventDefault();
   searchLocation();
 });
 
 $( document ).ready(function() {
 //Search for location
-$('#searchInputLabel').val(window.location.search.slice(8));
-searchLocation();
+console.log(location.search.slice(8));
+$('#searchInputLabel-data').val(window.location.search.slice(8));
+// TODO: delete this
+setTimeout(function(){
+  searchLocation();
+    //do what you need here
+}, 500);
 
 });
   
 function searchLocation() {
-  var geocoder = new google.maps.Geocoder("#map");
   console.log("click click");
+  var geocoder = new google.maps.Geocoder("#map");
 
-  var address = $('#searchInputLabel').val();
+  var address = $('#searchInputLabel-data').val();
   
 	geocoder.geocode( { 'address': address}, function(results, status) {
 		if (status == google.maps.GeocoderStatus.OK) 

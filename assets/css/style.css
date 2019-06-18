@@ -33,23 +33,39 @@ body{
     background-size: 100vw 100vh;
 }
 
-
-
-#searchForm{
-    margin: auto;
+#searchCol-index{
     margin-top: 10vh;
-    width: 60%;
 }
 
-#searchInputLabel{
+#searchCol-data{
+    margin-top: 0;
+    margin-bottom: 5vh;
+}
+
+#searchForm-index{
+    width: 100%;
+}
+
+#searchForm-data{
+    margin-top: 2px;
+    width: 100%;
+}
+
+#searchInputLabel-index{
     height: 50px;
     font-size: 24px;
-    margin-right: 0;
+    width: 70%;
 }
 
+#searchInputLabel-data{
+    height: 50px;
+    font-size: 24px;
+    width: 70%;
+}
 
-#searchButton{
+#searchButton-index, #searchButton-data{
     background:white;
+    padding: 8px;
 }
 
 #searchButton i{
@@ -58,7 +74,7 @@ body{
 
 
 #dataContainer{
-    width: 100vw;
+    max-width: 80vw;
 
 }
 
@@ -85,27 +101,14 @@ body{
       background-size: auto 100vh;
     }
 
-    #mainContainer{
-        margin-left:2vw;
-    }
 
-    #searchCol{
-        padding-left: 0;
-        margin-left: 0;
+    #searchForm-data{
+        margin: 0;
     }
     
-    #searchForm{
-        margin: 10px;
-        margin-top: 10vh;
-        width: 90vw;
-    }
 
-    #slogan{
-        width: 90vw;
-    }
 
-    
-  }
+}
 
 /* Screens that are 768px or less */
 @media screen and (max-width: 768px) {
@@ -113,6 +116,18 @@ body{
       background-color: blue; /* delete this*/
       background-size: auto 100vh;
     }
+
+    #map-container {
+        display: none;
+    }
+
+
+
+    #searchForm-data{
+        margin-top: 0;
+        margin-bottom: 5vh;
+    }
+    
   }
   
 /* Screens that are 360px or less */
@@ -126,7 +141,7 @@ body{
         font-size: 36px;
     }
 
-    #searchForm{
+    #searchForm-data{
         margin: 10px;
         margin-left: 0;
         margin-top: 10vh;
@@ -134,7 +149,7 @@ body{
         text-align: center;
     }
     
-    #searchInputLabel{
+    #searchInputLabel-data{
         height: 60px;
         font-size: 18px;
     }
