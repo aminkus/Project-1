@@ -30,6 +30,8 @@ To view files navigate to: https://joelearns2code.github.io/Project-1/
 
 To install source files use git to clone files from https://github.com/JoeLearns2Code/Project-1
 
+Node.js files can be referenced here: https://github.com/keilaloia/projectonenodecorsfix
+
 
 
 ## Running the tests
@@ -77,7 +79,7 @@ Additional features utilizing other API's could be added in future development.
 
 * **Keil Aloia** - Project Management, Node.js
 * **Cullan Aoki** - HTML/CSS, Javascript QA
-* **Adam Minkus** - HTML/CSS
+* **Adam Minkus** - HTML/CSS, main page design
 * **Joe Hutchinson** - Primary Javascript, Git Master
 
 ## License
