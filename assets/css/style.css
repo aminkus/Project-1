@@ -150,7 +150,7 @@ h2 {
     padding-bottom: 1%;
 
 }
-#ecobtn
+#ecobtn 
 {
     font-size: 24px;
     border-style: groove;
@@ -196,7 +196,12 @@ h2 {
     visibility: hidden;
 
 }
-
+#searchSpinner
+{
+    border-width: 10px; 
+    background-color: rgba(0,0,0,0);
+    margin-top: 32%;
+}
   
 
 

@@ -77,13 +77,16 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 $(document).ready(function () {
   loadLocal();
   $('#searchInputLabel-data').val(window.location.search.slice(8)); 
+  $("#zillow").attr({href:`https://www.zillow.com/homes/${window.location.search.slice(8)}`, target: "_blank"})
+  
 
   //Calls the function of the search when the page transitions--so that the user's search carries from index.html to data.html
   if (window.location !== "data") {
     // console.log("data");    
 
     $('#searchButton-data').click(function (event) {  
-      event.preventDefault();                         
+      event.preventDefault();  
+      $("a").attr({href: "https://www.zillow.com/homes/" + $('#searchInputLabel-data').val(), target: "_blank"});                                             
       loadLocal();
       $("#population").empty();             
       $("#annualMedianHomePrice").empty();  
