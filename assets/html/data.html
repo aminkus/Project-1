@@ -18,44 +18,64 @@
 </head>
 
 <body>
-    
+
+
     <div class="jumbotron">
-        <h1 class="display-4 text-center bg-white text-primary">Life Relocated</h1>
+        <h1 class="display-4 text-center bg-dark">Life Relocated</h1>
     </div>
-    
-    <div class="input-group mb-3" id="searchForm2">
-        <input type="text" class="form-control border border-primary" id="searchInputLabel"
-        placeholder="Enter a city or zipcode" aria-label="Search city" aria-describedby="searchButton">
-        <div class="input-group-append">
-            <button class="btn btn-outline-primary" type="button" id="searchButton2"><i
-                class="fa fa-search fa-2x"></i></button>
-            </div>
-        </div>
-        
-        <div class="container" id="dataContainer">
-            <div class="row">
-                <div class="col-12 text-center" id="searchCol">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-6" id="map-container">
-                    <div id="map" style="width: 100%; height: 400px"></div>
-                </div>
-                <div class="col-6" id="map-container">
-                    <div id="population"></div>  
-                    <div id="annualMedianHomePrice"></div>
-                    <div id="unemployment"></div>
-                    <div id="crime"></div>
-                    <div id="saleTax"></div>
+    <br>
+    <div class="container ml-5 pl-0">
+        <div class="row">
+            <div class="col-md-7">
+                <div class="input-group mb-3" id="searchForm2">
+                    <input type="text" class="form-control border border-primary" id="searchInputLabel"
+                        placeholder="Enter a city or zipcode" aria-label="Search city" aria-describedby="searchButton">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-primary" type="button" id="searchButton2"><i
+                                class="fa fa-search fa-2x"></i></button>
+                    </div>
                 </div>
             </div>
         </div>
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3G8BwCdv0XUpRNKq_W0CnhZwODTZYugw&callback=initMap"
+    </div>
+
+
+    <div class="container" id="dataContainer">
+        <div class="row">
+            <div class="col-12 text-center" id="searchCol">
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-6" id="map-container">
+                <div id="map" style="width: 100%; height: 400px"></div>
+            </div>
+            <div class="col-6 text-center" id="map-container">
+                    <div class="progress spinner-border" style="width: 4rem; height: 4rem;" role="status">
+                            <span class="sr-only">Loading...</span>
+                          </div>
+                          
+                <div id="population"></div>
+                <br>
+                <div id="annualMedianHomePrice"></div>
+                <br>
+                <div id="unemployment"></div>
+                <br>
+                <div id="crime"></div>
+                <br>
+                <div id="saleTax"></div>
+            </div>
+        </div>
+    </div>
+<div class="container">
+    <a href="https://www.zillow.com/homes/" + foundCity>Click Me</a>
+    <a href="https://www.apartments.com/" + foundCity>Click Me</a>
+</div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3G8BwCdv0XUpRNKq_W0CnhZwODTZYugw&callback=initMap"
         async defer></script>
-        <script type="text/javascript" src="../javascript/googlemaps.js"></script>
-    </body>
-    
+    <script type="text/javascript" src="../javascript/googlemaps.js"></script>
+</body>
+
 </html>

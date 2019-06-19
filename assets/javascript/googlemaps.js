@@ -17,21 +17,22 @@ var foundState = '';
 
 //ajax call to get the city data from geoip-db and define the 'local' variables
 
-function loadLocal(){
-$.ajax({
-  url: "https://geoip-db.com/jsonp",
-  jsonpCallback: "callback",
-  dataType: "jsonp",
-  // success: 
+function loadLocal() {
+  $.ajax({
+    url: "https://geoip-db.com/jsonp",
+    jsonpCallback: "callback",
+    dataType: "jsonp",
+    // success: 
+
+    
+  }).then(function (location) {
+   
+    localCity = location.city;
+    localState = location.state;
+   
 
 
-}).then(function (location) {
-
-  localCity = location.city;
-  localState = location.state;
-  
-
-});
+  });
 };
 
 
@@ -110,8 +111,9 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 $(document).ready(function () {
   loadLocal();
   $('#searchInputLabel').val(window.location.search.slice(8));
-  
-  
+  //show progress bar when search is entered
+  $(".progress").show();
+
   if (window.location !== "data") {
     console.log("data");
     //Search for location
@@ -119,18 +121,18 @@ $(document).ready(function () {
 
     $('#searchButton2').click(function () {
       searchLocation();
-      
+      $(".progress").show();
       //searchkeilswolfram();
     });
   }
-  
-    setTimeout(function () {
-      searchLocation();
-      
-      //searchkeilswolfram();
-    }, 1000);
 
-  
+  setTimeout(function () {
+    searchLocation();
+
+    //searchkeilswolfram();
+  }, 1000);
+
+
 });
 
 function searchLocation() {
@@ -183,7 +185,8 @@ function searchkeilswolfram() {
   }).then(function (response) {
     console.log(queryURL);
     console.log(response);
-
+    //hiding progress bar once data is loaded
+    $(".progress").hide();
     $("#population").empty();
     $("#annualMedianHomePrice").empty();
     $("#unemployment").empty();
@@ -193,37 +196,52 @@ function searchkeilswolfram() {
 
 
     var popImg = $("<img>");
+    var popHeader = $("<h2>");
     popImg.attr('alt', 'population info');
     popImg.attr('id', 'popData')
     popImg.attr('src', response.pop);
+    popHeader.text("Population");
+    $("#population").append(popHeader);
     $("#population").append(popImg);
 
 
     var annualImg = $("<img>");
+    var annualHeader = $("<h2>");
     annualImg.attr('alt', "annual median home price");
     annualImg.attr('id', 'annualMedianHPData');
     annualImg.attr('src', response.medianH);
+    annualHeader.text("Annual Home Price");
+    $("#annualMedianHomePrice").append(annualHeader);
     $("#annualMedianHomePrice").append(annualImg);
 
 
     var unemployImg = $("<img>");
+    var unemployHeader = $("<h2>");
     unemployImg.attr('alt', 'unemployment rate');
     unemployImg.attr('id', 'unemploymentData');
     unemployImg.attr('src', response.unemployed);
+    unemployHeader.text("Unemployment");
+    $("#unemployment").append(unemployHeader);
     $("#unemployment").append(unemployImg);
 
 
     var crimeImg = $("<img>");
+    var crimeHeader = $("<h2>");
     crimeImg.attr('alt', 'crime rate');
     crimeImg.attr('id', 'crimeData');
     crimeImg.attr('src', response.crime);
+    crimeHeader.text("Crime");
+    $("#crime").append(crimeHeader);
     $("#crime").append(crimeImg);
 
 
     var salesTaxImg = $("<img>");
+    var salesTaxHeader = $("<h2>");
     salesTaxImg.attr('alt', 'sales tax');
     salesTaxImg.attr('id', 'salesTaxData');
     salesTaxImg.attr('src', response.sales);
+    salesTaxHeader.text("Sales Tax");
+    $("#saleTax").append(salesTaxHeader);
     $("#saleTax").append(salesTaxImg);
 
 
