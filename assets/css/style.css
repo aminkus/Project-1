@@ -33,9 +33,50 @@ body{
     background-size: 100vw 100vh;
 }
 
+/* TODO: CA new styles from here down to 'end' comment *************/
+#searchCol-index{
+    margin-top: 10vh;
+}
+
+#searchCol-data{
+    margin-top: 0;
+    margin-bottom: 5vh;
+}
+
+#searchForm-index{
+    width: 100%;
+}
+
+#searchForm-data{
+    margin-top: 2px;
+    width: 100%;
+}
+
+#searchInputLabel-index{
+    height: 50px;
+    font-size: 24px;
+    width: 70%;
+}
+
+#searchInputLabel-data{
+    height: 50px;
+    font-size: 24px;
+    width: 70%;
+}
+
+#searchButton-index, #searchButton-data{
+    background:white;
+    padding: 8px;
+}
+
+#searchButton i{
+    width:50px;
+}
+/* end ********************************************************/
 
 
-#searchForm{
+/* TODO: CA delete this entire block. Renamed IDs
+    #searchForm{
     margin: auto;
     margin-top: 10vh;
     width: 60%;
@@ -54,7 +95,7 @@ body{
 
 #searchButton i{
     width:50px;
-}
+} */
 
 
 #dataContainer{
@@ -74,24 +115,33 @@ body{
     padding: 0;
   }
 
+  #spinnerButton{           /* TODO: CA new */
+    height: 20%;            /* TODO: CA new */
+    width: 40%;             /* TODO: CA new */
+  }                         /* TODO: CA new */
 
   
 
 /* media queries *******************************************************************/
+/* TODO: Replace all media queries with this new stuff. Leave any styles that anyone other than Cullan made, but verify IDs */
 /* Screens that are 960px or less */
 @media screen and (max-width: 960px) {
     body {
-      background-color: blue; /* delete this*/
+        background-size: auto 100vh;
+    }  
+  
+    #searchForm-data{
+        margin: 0;
+    }
+
+    #popData{       /*TODO: CA may need to resize images because they extend off screen*/
+        max-width: 400px;
+    }
+      
+/* TODO: CA delete these previous styles
+    body {
+      background-color: blue; 
       background-size: auto 100vh;
-    }
-
-    #mainContainer{
-        margin-left:2vw;
-    }
-
-    #searchCol{
-        padding-left: 0;
-        margin-left: 0;
     }
     
     #searchForm{
@@ -103,22 +153,61 @@ body{
     #slogan{
         width: 90vw;
     }
-
+ */
     
   }
 
 /* Screens that are 768px or less */
 @media screen and (max-width: 768px) {
     body {
-      background-color: blue; /* delete this*/
+        background-size: auto 100vh;
+    }
+  
+    #map-container {
+        display: none;
+    }
+  
+    #searchForm-data{
+        margin-top: 0;
+        margin-bottom: 5vh;
+    }
+   
+   
+    /* TODO: CA delete these previous styles
+    body {
+      background-color: blue;
       background-size: auto 100vh;
     }
-  }
+    */
+}
   
 /* Screens that are 360px or less */
 @media screen and (max-width: 360px) {
+
     body {
-        background-color: olive; /* delete this*/
+        background-size: auto 100vh;
+    }
+
+    .jumbotron h1{
+        font-size: 36px;
+    }
+
+    #searchForm-data{
+        margin: 10px;
+        margin-left: 0;
+        margin-top: 10vh;
+        width: 95vw;
+        text-align: center;
+    }
+    
+    #searchInputLabel-data{
+        height: 60px;
+        font-size: 18px;
+    }
+
+    /* TODO: CA delete these previous styles
+    body {
+        background-color: olive; 
         background-size: auto 100vh;
     }
 
@@ -138,6 +227,7 @@ body{
         height: 60px;
         font-size: 18px;
     }
+    */
 }
 
 

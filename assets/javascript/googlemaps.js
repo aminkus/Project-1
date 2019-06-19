@@ -18,6 +18,7 @@ var foundState = '';
 //Ajax call to geoip-db get the city data from geoip-db and define the 'local' variables
 
 function loadLocal() {
+  $("#searchSpinner").show();  //TODO: CA new
   $.ajax({
     url: "https://geoip-db.com/jsonp",
     jsonpCallback: "callback",
@@ -70,16 +71,21 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 
 $(document).ready(function () {
   loadLocal();
-  $('#searchInputLabel').val(window.location.search.slice(8));
+  $('#searchInputLabel-data').val(window.location.search.slice(8)); //TODO: CA renamed search input
 
   //Calls the function of the search when the page transitions--so that the user's search carries from index.html to data.html
   if (window.location !== "data") {
     // console.log("data");
     
 
-    $('#searchButton2').click(function () {
+    $('#searchButton-data').click(function (event) {  //TODO: CA renamed button and added event
+      event.preventDefault();                         //TODO: CA new
       loadLocal();
-      
+      $("#population").empty();             //TODO: CA moved from searchkeilswolfram() so div clears immediately
+      $("#annualMedianHomePrice").empty();  //TODO: CA moved from searchkeilswolfram()
+      $("#unemployment").empty();           //TODO: CA moved from searchkeilswolfram()
+      $("#crime").empty();                  //TODO: CA moved from searchkeilswolfram()
+      $("#saleTax").empty();                //TODO: CA moved from searchkeilswolfram()
     });
   }
 
@@ -93,7 +99,7 @@ function searchLocation() {
   var geocoder = new google.maps.Geocoder("#map");
   // console.log("click click");
 
-  var address = $('#searchInputLabel').val();
+  var address = $('#searchInputLabel-data').val(); //TODO: CA renamed search input
 
   geocoder.geocode({ 'address': address }, function (results, status) {
     // console.log(results);
@@ -139,53 +145,53 @@ function searchkeilswolfram() {
   }).then(function (response) {
     // console.log(queryURL);
     // console.log(response);
-
-    $("#population").empty();
-    $("#annualMedianHomePrice").empty();
-    $("#unemployment").empty();
-    $("#crime").empty();
-    $("#saleTax").empty();
-
-
-
+    
+    //$("#population").empty();             //TODO: CA moved this to search button click event
+    //$("#annualMedianHomePrice").empty();  //TODO: CA moved this to search button click event 
+    //$("#unemployment").empty();           //TODO: CA moved this to search button click event
+    //$("#crime").empty();                  //TODO: CA moved this to search button click event
+    //$("#saleTax").empty();                //TODO: CA moved this to search button click event
+    
+    $("#searchSpinner").hide();             //TODO: CA new
+    
+    
     var popImg = $("<img>");
     popImg.attr('alt', 'population info');
     popImg.attr('id', 'popData')
     popImg.attr('src', response.pop);
     $("#population").append(popImg);
-
-
+    
+    
     var annualImg = $("<img>");
     annualImg.attr('alt', "annual median home price");
     annualImg.attr('id', 'annualMedianHPData');
     annualImg.attr('src', response.medianH);
     $("#annualMedianHomePrice").append(annualImg);
-
-
+    
+    
     var unemployImg = $("<img>");
     unemployImg.attr('alt', 'unemployment rate');
     unemployImg.attr('id', 'unemploymentData');
     unemployImg.attr('src', response.unemployed);
     $("#unemployment").append(unemployImg);
-
-
+    
+    
     var crimeImg = $("<img>");
     crimeImg.attr('alt', 'crime rate');
     crimeImg.attr('id', 'crimeData');
     crimeImg.attr('src', response.crime);
     $("#crime").append(crimeImg);
-
-
+    
+    
     var salesTaxImg = $("<img>");
     salesTaxImg.attr('alt', 'sales tax');
     salesTaxImg.attr('id', 'salesTaxData');
     salesTaxImg.attr('src', response.sales);
     $("#saleTax").append(salesTaxImg);
-
-
-
-
-
+    
+    
+    
+    
   });
 
 

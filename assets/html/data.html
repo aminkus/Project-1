@@ -22,7 +22,9 @@
     <div class="jumbotron">
         <h1 class="display-4 text-center bg-white text-primary">Life Relocated</h1>
     </div>
+
     
+<!--    TODO: CA delete this div 
     <div class="input-group mb-3" id="searchForm2">
         <input type="text" class="form-control border border-primary" id="searchInputLabel"
         placeholder="Enter a city or zipcode" aria-label="Search city" aria-describedby="searchButton">
@@ -30,18 +32,34 @@
             <button class="btn btn-outline-primary" type="button" id="searchButton2"><i
                 class="fa fa-search fa-2x"></i></button>
             </div>
-        </div>
+        </div> -->
         
-        <div class="container" id="dataContainer">
-            <div class="row">
+        <div class="container-fluid" id="dataContainer"> <!--TODO: CA changed class-->
+            <div class="row" id="searchRow-data"> <!-- TODO: CA new row -->
+                <div class="col-12 text-center" id="searchCol-data"><!-- TODO: CA new -->
+                    <form class="form-inline my-2 my-lg-0 justify-content-center"  id="searchForm-data" action="assets/html/data.html" method="GET"><!-- TODO: CA new -->
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search city" aria-label="search" name="search" id="searchInputLabel-data"><!-- TODO: CA new -->
+                        <button class="btn  my-2 my-sm-0 btn-outline-primary" type="submit" id="searchButton-data"><i 
+                            class="fa fa-search fa-2x"></i></button> <!-- TODO: CA new -->
+                    </form><!-- TODO: CA new -->
+                </div><!-- TODO: CA new -->
+            </div><!-- TODO: CA new -->
+            <!-- TODO delete this row
+                <div class="row">
                 <div class="col-12 text-center" id="searchCol">
                 </div>
-            </div>
+            </div> -->
             <div class="row">
                 <div class="col-6" id="map-container">
                     <div id="map" style="width: 100%; height: 400px"></div>
                 </div>
-                <div class="col-6" id="map-container">
+                <div class="col-6" id="data-container">                     <!-- TODO: CA renamed id-->
+                    <div class="text-center" id="searchSpinner">            <!-- TODO: CA new -->
+                        <button class="btn btn-primary" type="button" disabled id="spinnerButton">                  <!-- TODO: CA new -->
+                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> <!-- TODO: CA new -->
+                            Loading...                                      <!-- TODO: CA new -->
+                        </button>                                           <!-- TODO: CA new -->
+                    </div>                                                  <!-- TODO: CA new -->
                     <div id="population"></div>  
                     <div id="annualMedianHomePrice"></div>
                     <div id="unemployment"></div>
