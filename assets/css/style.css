@@ -9,9 +9,9 @@
 }
 
 .jumbotron h1{
-    /* font-family: 'Oleo Script Swash Caps', cursive; */
     font-family: 'Kanit', sans-serif;
     display:table-cell; vertical-align:middle;
+    color: #3D9970;
 }
 
 .display-3{
@@ -23,40 +23,60 @@
 #slogan{
     text-align: center;
     color: white;
-    margin-top: 20vh;
+    margin-top: 5vh;
 }
 
 body{
-    height: 100%;
-    background-image:url(../media/seattle.jpg);
+    height: 1000px;
+    background-image:url("https://i.pinimg.com/564x/d8/0b/94/d80b94b58788288a605e7d325459d210.jpg");
     background-repeat: no-repeat;
-    background-size: 100vw 100vh;
+    background-size: cover;
 }
 
-
-
-#searchForm{
-    margin: auto;
+#searchCol-index{
     margin-top: 10vh;
-    width: 60%;
 }
 
-#searchInputLabel{
+#searchCol-data{
+    margin-top: 0;
+    margin-bottom: 5vh;
+}
+
+#searchForm-index{
+    width: 100%;
+}
+
+#searchForm-data{
+    margin-top: 2px;
+    width: 100%;
+}
+
+#searchInputLabel-index{
     height: 50px;
     font-size: 24px;
-    margin-right: 0;
+    width: 70%;
 }
 
+#searchInputLabel-data{
+    height: 50px;
+    font-size: 24px;
+    width: 70%;
+}
 
-#searchButton{
+#searchButton-index, #searchButton-data{
     background:white;
+    padding: 8px;
 }
 
 #searchButton i{
     width:50px;
 }
 
-
+.input-group{
+    width: 50%;
+    margin-left: 150px;
+   
+}
 #dataContainer{
     width: 100vw;
 
@@ -73,60 +93,66 @@ body{
     margin: 0;
     padding: 0;
   }
+/* Granim gradient background */
+  #canvas-image {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+}
 
-
-  
+/* headers for images */
+img{
+    border-radius: 15px;
+    border-style:ridge;
+    width: 540px;
+}
+h2 {
+    background-color: #3D9970;
+    color: white;
+    width:100%;
+    border-radius: 15px;
+    margin-bottom: 0;
+    border-style: groove;
+    width: 540px;
+}
+#map {
+    border-radius: 15px;
+    border-style:  double;
+}
 
 /* media queries *******************************************************************/
 /* Screens that are 960px or less */
 @media screen and (max-width: 960px) {
-    body {
-      background-color: blue; /* delete this*/
-      background-size: auto 100vh;
+    #searchForm-data{
+        margin: 0;
     }
-
-    #mainContainer{
-        margin-left:2vw;
-    }
-
-    #searchCol{
-        padding-left: 0;
-        margin-left: 0;
-    }
-    
-    #searchForm{
-        margin: 10px;
-        margin-top: 10vh;
-        width: 90vw;
-    }
-
-    #slogan{
-        width: 90vw;
-    }
-
-    
   }
 
 /* Screens that are 768px or less */
 @media screen and (max-width: 768px) {
-    body {
-      background-color: blue; /* delete this*/
-      background-size: auto 100vh;
+    #map-container {
+        display: none;
     }
-  }
+  
+    #searchForm-data{
+        margin-top: 0;
+        margin-bottom: 5vh;
+    }  
+}
   
 /* Screens that are 360px or less */
 @media screen and (max-width: 360px) {
-    body {
-        background-color: olive; /* delete this*/
-        background-size: auto 100vh;
-    }
-
     .jumbotron h1{
         font-size: 36px;
     }
 
-    #searchForm{
+    #searchForm-data{
         margin: 10px;
         margin-left: 0;
         margin-top: 10vh;
@@ -134,10 +160,10 @@ body{
         text-align: center;
     }
     
-    #searchInputLabel{
+    #searchInputLabel-data{
         height: 60px;
         font-size: 18px;
-    }
+    } 
 }
 
 
