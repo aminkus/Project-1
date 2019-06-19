@@ -13,8 +13,26 @@ var foundState = '';
 
 
 
+$(document).on("click", "#ecobtn", function()
+{
+
+  $("#eco").css("display", "block");
+  $("#eco").css("visibility", "visible");
+  $("#city").css("display", "none");
+  $("#city").css("visibility", "hidden");
+
+  
+});
+
+$(document).on("click", "#citybtn", function()
+{
+  $("#eco").css("visibility", "hidden");
+  $("#eco").css("display", "none");
+  $("#city").css("display", "block");
+  $("#city").css("visibility", "visible");  
 
 
+});
 //Ajax call to geoip-db get the city data from geoip-db and define the 'local' variables
 
 function loadLocal() {
@@ -142,6 +160,8 @@ function searchkeilswolfram() {
     url: queryURL,
     method: "GET",
   }).then(function (response) {
+    $("#city").css("visibility", "visible");  
+    $("#eco").css("visibility", "visible");
 
     // console.log(queryURL);
     // console.log(response);
