@@ -9,6 +9,28 @@ var localState = '';
 var foundCity = '';
 var foundState = '';
 
+
+$(document).on("click", "#ecobtn", function()
+{
+
+  $("#eco").css("display", "block");
+  $("#eco").css("visibility", "visible");
+  $("#city").css("display", "none");
+  $("#city").css("visibility", "hidden");
+
+  
+});
+
+$(document).on("click", "#citybtn", function()
+{
+  $("#eco").css("visibility", "hidden");
+  $("#eco").css("display", "none");
+  $("#city").css("display", "block");
+  $("#city").css("visibility", "visible");  
+
+
+});
+
 //Ajax call to geoip-db get the city data from geoip-db and define the 'local' variables
 
 function loadLocal() {
@@ -55,13 +77,16 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 $(document).ready(function () {
   loadLocal();
   $('#searchInputLabel-data').val(window.location.search.slice(8)); 
+  $("#zillow").attr({href:`https://www.zillow.com/homes/${window.location.search.slice(8)}`, target: "_blank"})
+  
 
   //Calls the function of the search when the page transitions--so that the user's search carries from index.html to data.html
   if (window.location !== "data") {
     // console.log("data");    
 
     $('#searchButton-data').click(function (event) {  
-      event.preventDefault();                         
+      event.preventDefault();  
+      $("a").attr({href: "https://www.zillow.com/homes/" + $('#searchInputLabel-data').val(), target: "_blank"});                                             
       loadLocal();
       $("#population").empty();             
       $("#annualMedianHomePrice").empty();  
@@ -117,6 +142,18 @@ function searchkeilswolfram() {
     url: queryURL,
     method: "GET",
   }).then(function (response) {
+    $("#city").css("visibility", "visible");  
+    $("#eco").css("visibility", "visible");
+
+    // console.log(queryURL);
+    // console.log(response);
+
+    $("#population").empty();
+    $("#annualMedianHomePrice").empty();
+    $("#unemployment").empty();
+    $("#crime").empty();
+    $("#saleTax").empty();
+
     $("#searchSpinner").hide();    
     
     var popImg = $("<img>");
