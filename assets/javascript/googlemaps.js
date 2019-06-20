@@ -171,7 +171,7 @@ function searchkeilswolfram() {
     annualImg.attr('alt', "annual median home price");
     annualImg.attr('id', 'annualMedianHPData');
     annualImg.attr('src', response.medianH);
-    annualHeader.text("Economy");
+    annualHeader.text("Annual Home Price");
     $("#annualMedianHomePrice").append(annualHeader);
     $("#annualMedianHomePrice").append(annualImg);
     
