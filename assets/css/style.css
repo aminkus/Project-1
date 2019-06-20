@@ -41,7 +41,7 @@ body{
 }
 
 #searchCol-data{
-    margin-top: 0;
+    margin-top: -1.4vh;
     margin-bottom: 5vh;
 }
 
@@ -126,9 +126,10 @@ h2 {
     width: 500px;
 }
 #map {
-    margin-top: 10.31%;
+    margin-top: 3%;
     border-radius: 15px;
     border-style:  double;
+    margin-bottom: -1%;
 }
 #storage
 {
@@ -151,6 +152,7 @@ h2 {
     margin-left: 10%;
     padding-top: 1%;
     margin-bottom: 5%;
+    margin-top: -7.2%;
     padding-bottom: 1%;
 
 }
@@ -233,7 +235,7 @@ h2 {
     height: 10%;
     position: fixed;
     bottom: 0;
-    margin-bottom: -4%;
+    margin-bottom: -0.5%;
     background-color: #343A40;
     border-top: #3D9970 solid 3px;
 }
@@ -285,7 +287,39 @@ h2 {
         width: 100%;
         height: 20vh;
     }
+
+/* additions made by jh 6/19  */
+
+#searchCol-data{
+    margin-top: -2.5vh;
+    margin-bottom: 5vh;
+}
+
+#btnstorage
+{
+
+    width: 100%;
+    margin-left: 10%;
+    padding-top: 1%;
+    margin-bottom: 5%;
+    margin-top: -14.5%;
+    padding-bottom: 1%;
+
+}
+
+#map {
+    margin-top: 2%;
+    border-radius: 15px;
+    border-style:  double;
+    margin-bottom: -1%;
+}
+
+
+
+
   }
+
+  
 
 /* Screens that are 768px or less */
 @media screen and (max-width: 768px) {
@@ -346,6 +380,39 @@ h2 {
         position: fixed;
 
     }
+
+
+  /* jh additions 6/19 */
+
+  #btnstorage
+  {
+  
+      width: 100%;
+      margin-left: 10%;
+      padding-top: 1%;
+      margin-bottom: 5%;
+      margin-top: -8%;
+      padding-bottom: 1%;
+  
+  }
+
+
+
+  #secondPage
+{
+    text-align: center;
+    font-size: 50px;
+    /* margin-top: 5%; */
+    width: 100%;
+    height: 10%;
+    position: fixed;
+    bottom: 0;
+    margin-bottom: 0%;
+    background-color: #343A40;
+    border-top: #3D9970 solid 3px;
+}
+
+
 }
   
 /* Screens that are 360px or less */
@@ -368,6 +435,3 @@ h2 {
     } 
 
 }
-
-
-
