@@ -13,6 +13,8 @@
     display:table-cell; vertical-align:middle;
     color: #3D9970;
     font-size: 80px;
+    top: 0;
+
 }
 
 .display-3{
@@ -24,7 +26,7 @@
 #slogan{
     text-align: center;
     color: white;
-    margin-top: 5vh;
+    top: 0;
 }
 
 body{
@@ -124,15 +126,15 @@ h2 {
     width: 500px;
 }
 #map {
-    margin-top: 3%;
+    margin-top: 10.31%;
     border-radius: 15px;
     border-style:  double;
-    margin-bottom: -.5%;
 }
 #storage
 {
     margin-top: -5%;
     margin-left: 10%;
+    margin-bottom: -5%;
     width: 100%;
     height: 520px;
     border: 3px solid black;
@@ -150,7 +152,6 @@ h2 {
     padding-top: 1%;
     margin-bottom: 5%;
     padding-bottom: 1%;
-    margin-top: -7%
 
 }
 #ecobtn 
@@ -205,17 +206,6 @@ h2 {
     background-color: rgba(0,0,0,0);
     margin-top: 32%;
 }
-footer
-{
-    text-align: center;
-    font-size: 50px;
-    margin-top: 5%;
-    width: 100%;
-    height: 10%;
-    display: fixed;
-    background-color: #343A40;
-    border-top: #3D9970 solid 3px;
-}
 
 #zillow
 {
@@ -225,28 +215,39 @@ footer
 {
     text-align: center;
     font-size: 50px;
-    /* margin-top: 5%; */
+    margin-top: 5%;
     width: 100%;
     height: 10%;
     position: fixed;
     bottom: 0;
     left: 0;
-    margin-bottom: -1.5%;
     background-color: #343A40;
     border-top: #3D9970 solid 3px;
-    
+}
+#secondPage
+{
+    text-align: center;
+    font-size: 50px;
+    /* margin-top: 5%; */
+    width: 100%;
+    height: 10%;
+    position: fixed;
+    bottom: 0;
+    margin-bottom: -4%;
+    background-color: #343A40;
+    border-top: #3D9970 solid 3px;
 }
 
 
 /* media queries *******************************************************************/
 /* Screens that are 960px or less */
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 980px) {
     #searchForm-data{
         margin: 0;
     }
     #btnstorage
     {
-        margin-top: -6vh;
+        margin-top: -3vh;
     }
 
     #storage
@@ -284,15 +285,6 @@ footer
         width: 100%;
         height: 20vh;
     }
-
-    #map
-    {
-      margin-top: .5%;
-      margin-bottom: -3%;
-
-    }
-
-
   }
 
 /* Screens that are 768px or less */
@@ -305,6 +297,55 @@ footer
         margin-top: 0;
         margin-bottom: 5vh;
     }  
+    #data-container
+    {
+        margin-left: -10%;
+    }
+    #storage
+    {
+        height: 500px;
+        margin-top: -3vh;
+    }
+    h2
+    {
+       width: 100%;
+       margin-left: 0%;
+
+    }
+    #annualMedianHPData
+    {
+        width: 100%;
+        height: 100%;
+    } 
+    #salesTaxData
+    {
+        width: 100%;
+        height: 100%;
+
+        /* height: 20vh; */
+    }
+    #crimeData
+    {
+        width: 100%;
+        height: 100%;
+
+    }
+    #unemploymentData
+    {
+        width: 100%;
+        height: 100%;
+    }
+    #popData
+    {
+        width: 100%;
+        height: 100%;
+    }
+    #secondPage
+    {
+        margin-bottom: -12%;
+        position: fixed;
+
+    }
 }
   
 /* Screens that are 360px or less */
@@ -325,6 +366,7 @@ footer
         height: 60px;
         font-size: 18px;
     } 
+
 }
 
 
