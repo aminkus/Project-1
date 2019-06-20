@@ -14,56 +14,69 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Kanit&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Caveat&display=swap" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css?family=Caveat|Faster+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
 
-
+    <!-- banner -->
     <div class="jumbotron">
         <h1 class="display-4 text-center bg-dark">Life Relocated</h1>
     </div>
     <br>
-    <div class="container ml-5 pl-0">
-        <div class="row">
-            <div class="col-md-7">
-                <div class="input-group mb-3" id="searchForm2">
-                    <input type="text" class="form-control border border-primary" id="searchInputLabel"
-                        placeholder="Enter a city or zipcode" aria-label="Search city" aria-describedby="searchButton">
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-primary" type="button" id="searchButton2"><i
-                                class="fa fa-search fa-2x"></i></button>
-                    </div>
-                </div>
+
+    <!-- search input -->
+    <div class="container text-center">
+        <div class="row" id="searchRow-data">
+            <div class="col-12 text-center" id="searchCol-data">
+                <form class="form-inline my-2 my-lg-0 justify-content-center" id="searchForm-data"
+                    action="assets/html/data.html" method="GET">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search city" aria-label="search"
+                        name="search" id="searchInputLabel-data">
+                    <button class="btn  my-2 my-sm-0 btn-outline-primary" type="submit" id="searchButton-data"><i
+                            class="fa fa-search fa-2x"></i></button>
+                </form>
             </div>
         </div>
     </div>
 
-
+    <!-- container for map and data -->
     <div class="container" id="dataContainer">
         <div class="row">
-            <div class="col-12 text-center" id="searchCol">
-            </div>
-        </div>
-        <br>
-        <div class="row">
             <div class="col-6" id="map-container">
-                <div id="map" style="width: 100%; height: 400px"></div>
+                <div id="map" style="width: 100%; height: 520px"></div>
+
+                <div class="text-center m-2">
+                    <a id="zillow" href="https://www.zillow.com/homes/">Find Housing: Zillow</a> &nbsp &nbsp
+                </div>
             </div>
-            <div class="col-6 text-center" id="map-container">
-                    <div class="progress spinner-border" style="width: 4rem; height: 4rem;" role="status">
-                            <span class="sr-only">Loading...</span>
-                          </div>
-                          
-                <div id="population"></div>
-                <br>
-                <div id="annualMedianHomePrice"></div>
-                <br>
-                <div id="unemployment"></div>
-                <br>
-                <div id="crime"></div>
-                <br>
-                <div id="saleTax"></div>
+            <div class="col-lg-6 col-md-6 col-sm-12 text-center" id="data-container">
+                <div id="btnstorage">
+                    <button id="ecobtn">Economy</button>
+                    <button id="citybtn">City Data</button>
+                </div>
+                <div id="storage">
+
+                    <div id="searchSpinner" class="progress spinner-border text-success"
+                        style="width: 10rem; height: 10rem;" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <div id="eco">
+                        <div id="annualMedianHomePrice"></div>
+                        <div id="saleTax"></div>
+                    </div>
+
+                    <div id="city">
+                        <div id="population"></div>
+                        <div id="unemployment"></div>
+                        <div id="crime"></div>
+                    </div>
+
+                </div>
+
             </div>
         </div>
     </div>
@@ -71,6 +84,22 @@
     <a href="https://www.zillow.com/homes/" + foundCity>Click Me</a>
     <a href="https://www.eventbrite.com/d/" + foundCity>Click Me</a>
 </div>
+
+    <footer id="secondPage">
+        <a href="https://github.com/keilaloia" target="_blank">
+            <i class="fa fa-github"></i>
+        </a>
+        <a href="https://github.com/JoeLearns2Code" target="_blank">
+            <i class="fa fa-github"></i>
+        </a>
+        <a href="https://github.com/ckaoki" target="_blank">
+            <i class="fa fa-github"></i>
+        </a>
+        <a href="https://github.com/aminkus" target="_blank">
+            <i class="fa fa-github"></i>
+        </a>
+    </footer>
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3G8BwCdv0XUpRNKq_W0CnhZwODTZYugw&callback=initMap"
