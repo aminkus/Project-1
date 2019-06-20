@@ -126,9 +126,10 @@ h2 {
     width: 500px;
 }
 #map {
-    margin-top: 10.31%;
+    margin-top: 3%;
     border-radius: 15px;
     border-style:  double;
+    margin-bottom: -.5%;
 }
 #storage
 {
@@ -152,6 +153,7 @@ h2 {
     padding-top: 1%;
     margin-bottom: 5%;
     padding-bottom: 1%;
+    margin-top: -7%
 
 }
 #ecobtn 
@@ -233,9 +235,11 @@ h2 {
     height: 10%;
     position: fixed;
     bottom: 0;
-    margin-bottom: -4%;
+    left: 0;
+    margin-bottom: -1.5%;
     background-color: #343A40;
     border-top: #3D9970 solid 3px;
+    
 }
 
 
@@ -247,7 +251,7 @@ h2 {
     }
     #btnstorage
     {
-        margin-top: -3vh;
+        margin-top: -6vh;
     }
 
     #storage
@@ -285,6 +289,15 @@ h2 {
         width: 100%;
         height: 20vh;
     }
+
+    #map
+    {
+      margin-top: .5%;
+      margin-bottom: -3%;
+
+    }
+
+
   }
 
 /* Screens that are 768px or less */
