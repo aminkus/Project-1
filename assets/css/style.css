@@ -9,10 +9,12 @@
 }
 
 .jumbotron h1{
-    /* font-family: 'Oleo Script Swash Caps', cursive; */
-    font-family: 'Kanit', sans-serif;
+    font-family: 'Caveat', cursive;
     display:table-cell; vertical-align:middle;
     color: #3D9970;
+    font-size: 80px;
+    top: 0;
+
 }
 
 .display-3{
@@ -24,7 +26,7 @@
 #slogan{
     text-align: center;
     color: white;
-    margin-top: 5vh;
+    top: 0;
 }
 
 body{
@@ -34,38 +36,50 @@ body{
     background-size: cover;
 }
 
-#searchBox{
-    margin-left: 170px;
-}
-
-
-#searchForm{
-    margin: auto;
+#searchCol-index{
     margin-top: 10vh;
-    width: 60%;
 }
 
+#searchCol-data{
+    margin-top: 0;
+    margin-bottom: 5vh;
+}
 
-#searchInputLabel{
+#searchForm-index{
+    width: 100%;
+}
+
+#searchForm-data{
+    margin-top: 2px;
+    width: 100%;
+}
+
+#searchInputLabel-index{
     height: 50px;
     font-size: 24px;
-    margin-right: 0;
+    width: 70%;
 }
 
+#searchInputLabel-data{
+    height: 50px;
+    font-size: 24px;
+    width: 70%;
+}
 
-#searchButton{
+#searchButton-index, #searchButton-data{
     background:white;
+    padding: 8px;
 }
 
 #searchButton i{
     width:50px;
 }
+
 .input-group{
     width: 50%;
     margin-left: 150px;
    
 }
-
 #dataContainer{
     width: 100vw;
 
@@ -99,77 +113,248 @@ body{
 img{
     border-radius: 15px;
     border-style:ridge;
-    width: 540px;
+    width: 500px;
 }
 h2 {
     background-color: #3D9970;
     color: white;
-    width:100%;
+    /* width:100%; */
+    margin-left: 3%;
     border-radius: 15px;
     margin-bottom: 0;
     border-style: groove;
-    width: 540px;
+    width: 500px;
 }
 #map {
+    margin-top: 10.31%;
     border-radius: 15px;
     border-style:  double;
 }
+#storage
+{
+    margin-top: -5%;
+    margin-left: 10%;
+    margin-bottom: -5%;
+    width: 100%;
+    height: 520px;
+    border: 3px solid black;
+    overflow: scroll;
+    /* display: inline-flex; */
+    border-radius: 15px;
+    border-style:  double;
+
+}
+#btnstorage
+{
+
+    width: 100%;
+    margin-left: 10%;
+    padding-top: 1%;
+    margin-bottom: 5%;
+    padding-bottom: 1%;
+
+}
+#ecobtn 
+{
+    font-size: 24px;
+    border-style: groove;
+    border-color: white;   
+    border-width: 3px; 
+    background-color: #3D9970;
+    color: white;
+    width: 46%;
+    margin-left: 3%;
+    border-radius: 15px;
+    border-style:  double;
+}
+#citybtn
+{
+    font-size: 24px;
+    border-style: groove;
+    border-color: white;    
+    border-width: 3px; 
+
+    background-color: #3D9970;
+    color: white;
+
+    width: 46%;
+    margin-right: 3%;;
+    border-radius: 15px;
+    border-style:  double;
 
 
+}
+#eco
+{
+    margin-top: 5%;
+    margin-bottom: 3%;
 
+    visibility: hidden;
 
-  
+}
+#city
+{
+    margin-top: 5%;
+    margin-bottom: 3%;
+
+    visibility: hidden;
+
+}
+#searchSpinner
+{
+    border-width: 10px; 
+    background-color: rgba(0,0,0,0);
+    margin-top: 32%;
+}
+
+#zillow
+{
+    font-size: 22px;
+}
+#frontpage
+{
+    text-align: center;
+    font-size: 50px;
+    margin-top: 5%;
+    width: 100%;
+    height: 10%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: #343A40;
+    border-top: #3D9970 solid 3px;
+}
+#secondPage
+{
+    text-align: center;
+    font-size: 50px;
+    /* margin-top: 5%; */
+    width: 100%;
+    height: 10%;
+    position: fixed;
+    bottom: 0;
+    margin-bottom: -4%;
+    background-color: #343A40;
+    border-top: #3D9970 solid 3px;
+}
+
 
 /* media queries *******************************************************************/
 /* Screens that are 960px or less */
-@media screen and (max-width: 960px) {
-    body {
-      background-color: blue; 
-      background-size: auto 100vh;
+@media screen and (max-width: 980px) {
+    #searchForm-data{
+        margin: 0;
+    }
+    #btnstorage
+    {
+        margin-top: -3vh;
     }
 
-    #mainContainer{
-        margin-left:2vw;
+    #storage
+    {
+        margin-top: -1.5vh;
+        height: 520px;
     }
+    h2
+    {
+        width: 95%;
 
-    #searchCol{
-        padding-left: 0;
-        margin-left: 0;
     }
-    
-    #searchForm{
-        margin: 10px;
-        margin-top: 10vh;
-        width: 90vw;
+    #annualMedianHPData
+    {
+        width: 100%;
+        height: 20vh;
+    } 
+    #salesTaxData
+    {
+        width: 100%;
+        height: 20vh;
     }
-
-    #slogan{
-        width: 90vw;
+    #crimeData
+    {
+        width: 100%;
+        height: 20vh;
     }
-
-    
+    #unemploymentData
+    {
+        width: 100%;
+        height: 20vh;
+    }
+    #popData
+    {
+        width: 100%;
+        height: 20vh;
+    }
   }
 
 /* Screens that are 768px or less */
 @media screen and (max-width: 768px) {
-    body {
-      background-color: blue; /* delete this*/
-      background-size: auto 100vh;
+    #map-container {
+        display: none;
     }
-  }
+  
+    #searchForm-data{
+        margin-top: 0;
+        margin-bottom: 5vh;
+    }  
+    #data-container
+    {
+        margin-left: -10%;
+    }
+    #storage
+    {
+        height: 500px;
+        margin-top: -3vh;
+    }
+    h2
+    {
+       width: 100%;
+       margin-left: 0%;
+
+    }
+    #annualMedianHPData
+    {
+        width: 100%;
+        height: 100%;
+    } 
+    #salesTaxData
+    {
+        width: 100%;
+        height: 100%;
+
+        /* height: 20vh; */
+    }
+    #crimeData
+    {
+        width: 100%;
+        height: 100%;
+
+    }
+    #unemploymentData
+    {
+        width: 100%;
+        height: 100%;
+    }
+    #popData
+    {
+        width: 100%;
+        height: 100%;
+    }
+    #secondPage
+    {
+        margin-bottom: -12%;
+        position: fixed;
+
+    }
+}
   
 /* Screens that are 360px or less */
 @media screen and (max-width: 360px) {
-    body {
-        background-color: olive; /* delete this*/
-        background-size: auto 100vh;
-    }
-
     .jumbotron h1{
         font-size: 36px;
     }
 
-    #searchForm{
+    #searchForm-data{
         margin: 10px;
         margin-left: 0;
         margin-top: 10vh;
@@ -177,10 +362,11 @@ h2 {
         text-align: center;
     }
     
-    #searchInputLabel{
+    #searchInputLabel-data{
         height: 60px;
         font-size: 18px;
-    }
+    } 
+
 }
 
 
