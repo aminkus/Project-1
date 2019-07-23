@@ -51,9 +51,11 @@ Source files have been extensively tested by displaying pages in Google Chrome a
 
 This website was designed with consideration for multiple viewports, including mobile devices.  The layout can be viewed at multiple screen sizes to test responsiveness.
 
-## Deployment
+## Deployed Link
 
-Navigate to https://github.com/ to clone.
+-  https://joelearns2code.github.io/Project-1/
+
+
 
 ## Built With
 
